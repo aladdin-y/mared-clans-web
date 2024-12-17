@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-
+import config from '../../config.json'
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const code = searchParams.get('code');
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   if (hasCookie) {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
-  const response = await fetch(`http://localhost:3001/users/oauth`, {
+  const response = await fetch(`${config.API_URL}/users/oauth`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

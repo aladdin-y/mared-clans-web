@@ -91,7 +91,7 @@ const Navbar = () => {
       {t('commands',"Commands")}
               </button>
 
-<button onClick={() => router.push(`https://discord.gg/YGWdsJx7UX`)} className="text-sm hover:text-[#6f74f5] transition-colors">
+<button onClick={() => router.push(`https://discord.gg/your-server-link`)} className="text-sm hover:text-[#6f74f5] transition-colors">
   {t('contactus', "Contact us")}
 </button>
           </div>
@@ -133,20 +133,23 @@ const Navbar = () => {
             className="md:hidden bg-[#1a1a1a] bg-opacity-80 backdrop-blur-md mt-2 rounded-xl shadow-lg max-w-7xl mx-auto px-6 py-4 space-y-3"          >
               <a href="#" className="block text-sm hover:text-[#6f74f5] transition-colors">Features</a>
               <a href="#" className="block text-sm hover:text-[#6f74f5] transition-colors">Premium</a>
-             
-
-              {
-              IslogIn.status ?
-             (<Profile UserCode={IslogIn.code} />)
-              : (<>
-                 <button onClick={handleLogin} className="w-full bg-gradient-to-r from-[#6f74f5] to-[#8e92ff] text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-[#5a5fd6] hover:to-[#7a7ee6] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                Login
+              <button onClick={() => router.push(`/commands`)} className="block text-sm hover:text-[#6f74f5] transition-colors">
+                {t('commands', "Commands")}
               </button>
-              
-         <div className='mx-2'></div>
-         <LanguageSelector isMobileMenuOpen={false} />
-              </>)
-            }
+              <button onClick={() => router.push(`https://discord.gg/your-server-link`)} className="block text-sm hover:text-[#6f74f5] transition-colors">
+                {t('contactus', "Contact us")}
+              </button>
+              {
+                IslogIn.status ?
+                (<Profile UserCode={IslogIn.code} />)
+                : (<>
+                  <button onClick={handleLogin} className="w-full bg-gradient-to-r from-[#6f74f5] to-[#8e92ff] text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-[#5a5fd6] hover:to-[#7a7ee6] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    Login
+                  </button>
+                  <div className='mx-2'></div>
+                  <LanguageSelector isMobileMenuOpen={false} />
+                </>)
+              }
           </motion.div>
         )}
       </AnimatePresence>
