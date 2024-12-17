@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Icon as LucideIcon, Star, Award, ThumbsUp, Globe } from 'lucide-react';
+import { Star, Award, ThumbsUp, Globe } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface DashboardProps {
@@ -17,7 +17,7 @@ interface ServerData {
 }
 
 interface StatCardProps {
-  icon: typeof LucideIcon;
+  icon: typeof Star;
   title: string;
   value: string;
   change: string;
