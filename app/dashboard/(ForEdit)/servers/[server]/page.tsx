@@ -1,53 +1,75 @@
+"use client";
 
-  "use client"
-
-import { motion, AnimatePresence } from 'framer-motion'
-import {  Star, Award, ThumbsUp, Globe, } from 'lucide-react'
-
+import { motion, AnimatePresence } from 'framer-motion';
+import { Star, Award, ThumbsUp, Globe } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-export default function Dashboard({ params }: { params: { server: string } }) {
-  const [ServerData, setServerData] = useState({});
-  useEffect(() => {
-  const fetchGuild = async () => {
-    try {
-
-      const response = await fetch(`http://localhost:3001/guild/${params.server}`, {
-        method: 'GET',
-    
-        headers: {
-          'Authorization': 'Bearer testw125asdgsdty13dfhad@tW#$YSHG#WHSFY#@hdrhRDTY#hDH#$WTY3wH', // استبدل YOUR_TOKEN_HERE بالتوكن الصحيح
-          'Content-Type': ' application/x-www-form-urlencoded'
-        }
-      });
-
-      if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if(data.status == "error" && data.errorCode == 1010){
-        setServerData({})
-      }
-   
-      setServerData(data); 
- 
-    } catch (err) {
-      console.log(err)
+interface DashboardProps {
+  params: {
+    server: string;
   };
-  }
+}
 
-  fetchGuild()
-}, [params.server]);
-console.log(ServerData)
+interface ServerData {
+  status?: string;
+  errorCode?: number;
+  // Add other properties as needed
+}
+
+interface StatCardProps {
+  icon: typeof Star;
+  title: string;
+  value: string;
+  change: string;
+}
+
+interface ChartCardProps {
+  title: string;
+}
+
+interface SettingsCardProps {
+  title: string;
+  description: string;
+}
+
+export default function Dashboard({ params }: DashboardProps) {
+  const [ServerData, setServerData] = useState<ServerData>({});
+  
+  useEffect(() => {
+    const fetchGuild = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/guild/${params.server}`, {
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer testw125asdgsdty13dfhad@tW#$YSHG#WHSFY#@hdrhRDTY#hDH#$WTY3wH',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+
+        const data: ServerData = await response.json();
+        if (data.status === "error" && data.errorCode === 1010) {
+          setServerData({});
+        } else {
+          setServerData(data);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchGuild();
+  }, [params.server]);
+
+  console.log(ServerData);
 
   return (
-    <div className="flex h-screen bg-gray-900 text-white overflow-x-hidden ">
-
-
-    <main className="flex-1 flex flex-col">
-
-    <div className="flex-1 overflow-y-auto p-6">
+    <div className="flex h-screen bg-gray-900 text-white overflow-x-hidden">
+      <main className="flex-1 flex flex-col">
+        <div className="flex-1 overflow-y-auto p-6">
           <AnimatePresence mode="wait">
             {false ? (
               <motion.div
@@ -90,20 +112,19 @@ console.log(ServerData)
             )}
           </AnimatePresence>
         </div>
-
-    </main>
+      </main>
     </div>
-  )
+  );
 }
 
-function StatCard({ icon: Icon, title, value, change }) {
+function StatCard({ icon: Icon, title, value, change }: StatCardProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       className="bg-gray-800 rounded-xl p-6 shadow-lg"
     >
       <div className="flex items-center mb-4">
-        <Icon size={24} className="text-[#6f74f5] mr-2" />
+        <Icon  />
         <h3 className="text-gray-400">{title}</h3>
       </div>
       <p className="text-2xl font-bold">{value}</p>
@@ -111,10 +132,10 @@ function StatCard({ icon: Icon, title, value, change }) {
         {change}
       </p>
     </motion.div>
-  )
+  );
 }
 
-function ChartCard({ title }) {
+function ChartCard({ title }: ChartCardProps) {
   return (
     <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
       <h3 className="text-xl font-bold mb-4">{title}</h3>
@@ -122,10 +143,10 @@ function ChartCard({ title }) {
         <span className="text-gray-500">Chart Placeholder</span>
       </div>
     </div>
-  )
+  );
 }
 
-function SettingsCard({ title, description }) {
+function SettingsCard({ title, description }: SettingsCardProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -141,5 +162,5 @@ function SettingsCard({ title, description }) {
         Configure
       </motion.button>
     </motion.div>
-  )
+  );
 }
