@@ -1,0 +1,26 @@
+{
+    "title": "Mared Clans",
+    "description": "Mared Clans is a fully customizable, multipurpose bot specifically designed for efficient clan management. From personalized clan introductions to advanced logs and many other clan-related features, take full control of your clan community with Mared Clans.", 
+    
+    "Rules": {
+        "title": "Rules",
+        "Terms": "Terms of Service",
+        "Privacy": "Privacy Policy",
+        "Refund": "Refund Policy"
+    },
+
+    "Social": {
+        "title": "Social Media",
+        "Discord": "Discord",
+        "GitHub": "GitHub",
+        "Instagram": "Instagram"
+    },
+
+    "Links": {
+        "title": "Links",
+        "Home": "Home",
+        "Invite": "Invite Bot",
+        "Commands": "Commands",
+        "Dashboard": "Dashboard"
+    }
+}

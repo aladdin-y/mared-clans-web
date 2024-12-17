@@ -1,0 +1,17 @@
+{
+    "main": {
+        "Selectaserver": "Select a server",
+        "SelectaClan": "Select a Clan",
+        "servers": "servers",
+        "clans": "clans",
+        "filter": "filter",
+        "all": "all",
+        "owned": "owned",
+        "justAdmin": "admin",
+        "search": "search",
+        "Edit": "Edit",
+        "add": "add bot",
+        "admin": "admin",
+        "owner": "owner"
+    }
+}

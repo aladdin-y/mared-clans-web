@@ -1,0 +1,38 @@
+{
+  "main": {
+    "Description": "Mared Clans is a fully customizable, multipurpose bot specifically designed for efficient clan management. From personalized clan introductions to advanced logs and many other clan-related features, take full control of your clan community with Mared Clans.",
+    "button": "Add To Discord"
+  },
+  "features": {
+    "title": "Features",
+    "description": "Discover the powerful features that Mared Clans offers to enhance your clan management experience. From automated member management to detailed activity logs, Mared Clans provides all the tools you need to run a successful clan. Unlock the full potential of your Discord server with our bot! Powerful features and smart tools designed to make your experience more enjoyable and engaging.",
+    "customizable": {
+      "title": "Fully Customizable",
+      "description": "Easily customize all bot commands and images through a simple and beautiful interface. Modify every aspect of the bot to suit the unique needs of your clan."
+    },
+    "fast": {
+      "title": "Fast Performance",
+      "description": "Enjoy fast response times and smooth operation, making your clan management efficient and hassle-free. The bot is designed to perform efficiently even in high-pressure environments."
+    },
+    "easy": {
+      "title": "Quick and Easy",
+      "description": "Simple setup and easy navigation, allowing you to get started right away. Manage your tasks effortlessly with an intuitive design that saves you time. No technical expertise required, just follow the simple steps."
+    },
+    "userManagement": {
+      "title": "User Management",
+      "description": "Full control over your account, allowing you to customize your profile and manage settings easily. Add or remove members, assign roles, and control permissions."
+    },
+    "leveling": {
+      "title": "Leveling System",
+      "description": "Track your progress and achievements with a dynamic leveling system that rewards participation and interaction. Celebrate milestones and motivate your community to reach new heights! The system provides continuous rewards and incentives for members."
+    }
+  },
+  "clans": {
+    "title": "What are Clans?",
+    "description": "Clans are groups of players who unite to achieve common goals, whether in electronic games or other activities within the Discord community. Clans provide an ideal environment for cooperation and interaction among members, allowing them to share experiences and plan together to achieve collective accomplishments. By joining a clan, each member can contribute to the team's success and enjoy a shared experience that enhances competitiveness and collaboration among members.",
+    "button": "Learn More"
+  },
+  "Trusted": "Trusted by Top Discord Communities",
+  "getStartNow": "Get Started Now",
+  "Ready?": "Ready to Transform Your Server?"
+}

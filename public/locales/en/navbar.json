@@ -1,0 +1,13 @@
+{
+    "commands": "Commands",
+    "contactus": "Contact Us",
+    "user": {
+        "guilds": "Your Guilds",
+        "clans": "Your Clans",
+        "commands": "Commands",
+        "topClans": "Top Clans",
+        "topMembers": "Top Members",
+        "Logout": "Logut"
+    }
+    
+}

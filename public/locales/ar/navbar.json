@@ -1,0 +1,13 @@
+{
+    "commands": "الأوامر",
+    "contactus": "اتصل بنا",
+    "user":{
+        "guilds": "خوادمك",
+        "clans": "عشائرك",
+        "commands": "الأوامر",
+        "topClans": "افضل الكلانات",
+        "topMembers": "افضل الأعضاء",
+        "Logout": "تسجيل خروج"
+     
+    }
+}
