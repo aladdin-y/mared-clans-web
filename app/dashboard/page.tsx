@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import {  ChevronDown } from 'lucide-react'
 import Navbar from '../components/navbar';
 import Link from "next/link";
@@ -185,6 +185,7 @@ if (!isReady) {
   return <></>;
 }
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="relative isolate px-6 pt-14 lg:px-8 min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] text-white overflow-hidden ">
      <div
           aria-hidden="true"
@@ -573,5 +574,6 @@ loading ? (<>
 
       <Footer />
     </div>
+    </Suspense>
   );
 }
