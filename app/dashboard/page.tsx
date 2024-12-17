@@ -15,13 +15,26 @@ import Cookies from 'js-cookie';
 import {  Menu, MenuButton,  MenuItem, MenuItems, MenuSection } from '@headlessui/react'
 import { useTranslation } from 'react-i18next';
 
+interface UserDataType {
+  id: string;
+  // Add other properties if needed
+}
+interface ServerType {
+  id: string | bigint;
+  name: string;
+  icon?: string;
+  banner?: string;
+  logo?: string;
+  IsOwner?: boolean;
+  type?: string;
+}
 export default function Component() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const router = useRouter();
   const code = Cookies.get("scc-code");
-    const [UserData, setUserData] = useState({});
-  const [LastData, setLastData] = useState([]);
+    const [UserData, setUserData] = useState<UserDataType>({ id: '' });
+  const [LastData, setLastData] = useState<ServerType[]>([]);
   const [loading, setLoading] = useState(true); // حالة التحميل
 
     
@@ -83,7 +96,7 @@ useEffect(() => {
   const controller = new AbortController();
   const signal = controller.signal;
   
-  if (!UserData.id) return;
+  if (!UserData?.id) return;
 
   setLoading(true);
   const currentRequestType = type; // تحديد نوع الطلب الحالي
@@ -114,7 +127,7 @@ useEffect(() => {
       // التأكد من أن نوع الطلب لم يتغير
       if (currentRequestType !== type) return;
 
-      const updatedData = (type === "servers" ? data.guilds : data.clans).map(item => ({
+      const updatedData = (type === "servers" ? data.guilds : data.clans).map((item: ServerType) => ({
         ...item,
         id: type === "servers" ? BigInt(item.id) : item.id,
         logo: (type === "servers" ? `https://cdn.discordapp.com/icons/${item.id}/${item.icon}?size=1024` : item.logo),
@@ -127,7 +140,11 @@ useEffect(() => {
       setLastData(updatedData);
     
     } catch (err) {
-      console.error(err.message);
+      if (err instanceof Error) {
+        console.error(err.message);
+      } else {
+        console.error("An unknown error occurred");
+      }
       if (currentRequestType === type) setLastData([]);
     } finally {
       // التأكد من أن نوع الطلب لم يتغير قبل تحديث حالة التحميل
