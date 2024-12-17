@@ -124,7 +124,7 @@ function StatCard({ icon: Icon, title, value, change }: StatCardProps) {
       className="bg-gray-800 rounded-xl p-6 shadow-lg"
     >
       <div className="flex items-center mb-4">
-        <Icon size={24} className="text-[#6f74f5] mr-2" />
+        <Icon  />
         <h3 className="text-gray-400">{title}</h3>
       </div>
       <p className="text-2xl font-bold">{value}</p>
