@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 
 // Middleware الرئيسي
-export function middleware(req) {
+import { NextRequest } from 'next/server';
+
+export function middleware(req: NextRequest) {
   console.log('Middleware is running');
 
   // الحصول على ملف تعريف الارتباط 'scc-code'
