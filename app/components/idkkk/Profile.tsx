@@ -32,11 +32,11 @@ const Profile = ({UserCode} : {UserCode:string}) => {
     const [UserData, setUserData] = useState<User | null>(null);
     const router = useRouter();  
     const handleLogin = () => {
-      const loginWindow = window.open('/dashboard', 'loginWindow', 'width=600,height=600');
+      const loginWindow = window.open('https://discord.com/oauth2/authorize?client_id=1280226211477458945&response_type=code&redirect_uri=https%3A%2F%2Fmared-clans-web.vercel.app%2Foauth&scope=identify+guilds+email', 'loginWindow', 'width=600,height=600');
       if (loginWindow) {
         loginWindow.focus();
-      }
-    };
+    }
+  };
     const { t } = useTranslation('navbar');
 
     useEffect(() => {
