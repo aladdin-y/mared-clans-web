@@ -35,6 +35,7 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
     }
   };
   const { t } = useTranslation('navbar');
+  console.log(UserCode);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -53,7 +54,6 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
         }
 
           const data = await response.json();
-        console.log(data);
         if (data.status === "error" && data.errorCode === 1004) {
           Cookies.remove('scc-code');
         } else {
