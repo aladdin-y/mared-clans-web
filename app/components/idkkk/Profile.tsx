@@ -52,8 +52,8 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
           throw new Error(`Error: ${response.status}`);
         }
 
-        const data = await response.json();
-
+          const data = await response.json();
+        console.log(data);
         if (data.status === "error" && data.errorCode === 1004) {
           Cookies.remove('scc-code');
         } else {

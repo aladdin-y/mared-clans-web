@@ -41,6 +41,7 @@ const Navbar = () => {
     code: sccCode || "",
     status: !!sccCode, // تتحقق مما إذا كانت قيمة sccCode موجودة وتعيد true أو false
   };
+  console.log(IslogIn)
   useEffect(() => {
     setIsVisible(true);
 
