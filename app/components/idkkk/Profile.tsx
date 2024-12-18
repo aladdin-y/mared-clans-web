@@ -46,7 +46,7 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         });
-
+        console.log(response)
         if (!response.ok) {
           Cookies.remove('scc-code');
           throw new Error(`Error: ${response.status}`);
@@ -79,7 +79,6 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
   );
 
   const isArabic = i18n.language === 'ar';
-  if(!loading) console.log(UserData);
   return (
     <Suspense fallback="loading">
       {loading ? (
