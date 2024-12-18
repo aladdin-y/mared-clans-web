@@ -35,7 +35,6 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
     }
   };
   const { t } = useTranslation('navbar');
-  console.log(UserCode);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -80,7 +79,7 @@ const Profile = ({ UserCode }: { UserCode: string }) => {
   );
 
   const isArabic = i18n.language === 'ar';
-
+  if(!loading) console.log(UserData);
   return (
     <Suspense fallback="loading">
       {loading ? (
