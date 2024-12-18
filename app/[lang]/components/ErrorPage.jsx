@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
-import img from "../../public/imgs/404 Page Not Found.png"
+import img from "../../../public/imgs/404 Page Not Found.png"
 
 const ErrorPage = ({ code, message }) => {
     const [clicked, setClicked] = useState(false);
