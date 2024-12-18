@@ -16,10 +16,24 @@ i18n
     load: "languageOnly",
     fallbackLng: "en",
     saveMissing:true,
+    detection: {
+      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      lookupQuerystring: 'lng',
+      lookupCookie: 'i18next',
+      lookupLocalStorage: 'i18nextLng',
+      caches: ['localStorage', 'cookie'],
+      checkWhitelist: true, // ensure the detected language is in the whitelist
+    },
+    whitelist: ['en', 'ar'], // add all supported languages here
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
     
   });
 
-  export default i18n;
+// Log the detected language
+i18n.on('languageChanged', (lng) => {
+  console.log('Detected language:', lng);
+});
+
+export default i18n;
