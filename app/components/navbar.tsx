@@ -131,8 +131,6 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
             className="md:hidden bg-[#1a1a1a] bg-opacity-80 backdrop-blur-md mt-2 rounded-xl shadow-lg max-w-7xl mx-auto px-6 py-4 space-y-3"          >
-              <a href="#" className="block text-sm hover:text-[#6f74f5] transition-colors">Features</a>
-              <a href="#" className="block text-sm hover:text-[#6f74f5] transition-colors">Premium</a>
               <button onClick={() => router.push(`/commands`)} className="block text-sm hover:text-[#6f74f5] transition-colors">
                 {t('commands', "Commands")}
               </button>
